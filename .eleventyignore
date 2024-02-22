@@ -1,0 +1,10 @@
+src/admin/*.js
+
+src/tailwind
+src/js
+test.njk
+
+
+src/industry-insights/creators.md
+src/industries/*
+src/social.njk

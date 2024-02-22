@@ -1,0 +1,120 @@
+@import "@csstools/normalize.css";
+
+:root {
+    --font-copy: "IBM Plex Sans", sans-serif;
+    --font-display: "IBM Plex Sans Condensed", sans-serif;
+    --brand-dark: #47383e;
+    --brand-primary: #7cc0c8;
+    --brand-accent: #edd2a5;
+    --brand-secondary: #c16151;
+    --brand-light: #a5a5a4;
+}
+
+body {
+    font-family: var(--font-copy);
+    line-height: 1.2;
+    letter-spacing: 0.02rem;
+    color: var(--brand-light);
+    background-color: #21181c;
+    width: min(960px, 100% - 4rem);
+    margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+}
+
+p {
+    line-height: 1.5;
+}
+
+h1 {
+    color: var(--brand-secondary);
+    /* display: flex;
+     flex-wrap: wrap;
+     align-items: center;*/
+    display: inline-block;
+    text-transform: uppercase;
+
+    & svg {
+        display: block;
+
+        max-width: 430px;
+    }
+}
+.current-color {
+    fill: currentColor;
+}
+
+.structure {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: min(20vw, 30px);
+    position: relative;
+    z-index: 20;
+}
+aside {
+    margin: min(20vh, 50px) 0 0;
+
+    & h4{
+        color: var(--brand-primary)
+    }
+}
+.links {
+    & a {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+    & svg {
+        fill: var(--brand-secondary);
+    }
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 1rem;
+    list-style: none;
+
+    & li {
+        padding-block: 5px;
+    }
+
+    & a {
+        text-decoration: none;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    font-size: 11px;
+    padding-block-start: 100px;
+}
+
+a,
+a:link,
+a:visited {
+    color: var(--brand-accent);
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+@media (width >= 1024px) {
+    .structure {
+        grid-template-columns: 1fr minmax(150px, 20%);
+        gap: min(20vw, 150px);
+    }
+}
