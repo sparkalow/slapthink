@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production npm-run-all --sequential prod:*",
     "start": "export BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD); npm run clean && npm-run-all --parallel dev:*",
-    "prod:css": "postcss src/tailwind/tailwind.css > src/css/style.css",
+    "prod:css": "npm run build:css",
     "prod:eleventy": "ELEVENTY_ENV=production npx @11ty/eleventy",
     "prod:js": "npm run build:js",
     "dev:css": "npm run build:css && watch -p 'src/css/**/*.css' -p 'unocss.config.js' -p 'src/**/*.njk' -c 'npm run build:css'",
