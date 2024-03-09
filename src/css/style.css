@@ -18,7 +18,7 @@ body {
     background-color: #21181c;
     width: min(960px, 100% - 4rem);
     margin: auto;
-    padding-top:2rem;
+    padding-top: 2rem;
 }
 
 h1,
@@ -62,8 +62,8 @@ h1 {
 aside {
     margin: min(20vh, 50px) 0 0;
 
-    & h4{
-        color: var(--brand-primary)
+    & h4 {
+        color: var(--brand-primary);
     }
 }
 .links {
@@ -79,7 +79,7 @@ aside {
 nav ul {
     margin: 0;
     padding: 0;
-    padding-inline-start: 1rem;
+    padding-inline-start: 0.68rem;
     list-style: none;
 
     & li {
@@ -98,6 +98,8 @@ nav ul {
 footer {
     font-size: 11px;
     padding-block-start: 100px;
+    padding-block-end: 25px;
+    color: hsl(336, 12%, 35%);
 }
 
 a,
@@ -118,5 +120,9 @@ canvas {
         grid-template-columns: 1fr minmax(150px, 20%);
         gap: min(20vw, 150px);
         align-items: center;
+    }
+    aside {
+        padding: 2vw;
+        background-color: #1d1217;
     }
 }
