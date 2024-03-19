@@ -1,0 +1,15 @@
+<div class="sites-container">
+    <h3>A few sites I've built&hellip;</h3>
+    <div class="sites">
+        {% for site in collections.sites %}
+            <div class="site-card">
+                <a href="{{site.data.url}}">
+                    <div class="site-image">
+                        {% image site.data.image, [600,300], { img: { sizes:"(min-width: 1024px) 600px, 100vw", alt: (site.data.title + " website screenshot") | e}, picture: { class:"clipped-img" } } %}
+                    </div>
+                    {{site.data.title}}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
