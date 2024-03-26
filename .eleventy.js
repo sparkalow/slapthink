@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
     // Assets
     // eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/img");
+    eleventyConfig.addPassthroughCopy({"src/public": "/"});
 
     eleventyConfig.setServerOptions({
         watch: ["_site/*.css"]
