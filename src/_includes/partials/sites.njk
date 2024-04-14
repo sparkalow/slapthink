@@ -1,7 +1,8 @@
 <div class="sites-container">
-    <h3>A few sites I've built&hellip;</h3>
+    <h3>Some sites I've built&hellip;</h3>
     <div class="sites">
         {% for site in collections.sites %}
+            {% if not site.disabled %}
             <div class="site-card">
                 <a href="{{site.data.url}}">
                     <div class="site-image">
@@ -10,6 +11,7 @@
                     {{site.data.title}}
                 </a>
             </div>
+            {% endif %}
         {% endfor %}
     </div>
 </div>

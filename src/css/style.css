@@ -68,6 +68,10 @@ aside {
         color: var(--brand-primary);
     }
 }
+.leadin{
+    padding-block-end: 4rem;
+    padding-block-start: 2rem;
+}
 .links {
     & a {
         display: inline-flex;
@@ -89,7 +93,7 @@ nav ul {
     }
 
     & a {
-        text-decoration: none;
+        text-decoration: underline;
         font-size:.85rem;
     }
 
@@ -131,10 +135,15 @@ canvas {
     display: grid;
     gap: clamp(1.5rem, 5vw, 3rem);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+
+    & a{
+        text-decoration: none;
+    }
 }
 .site-card{
     transition: transform .18s ease;
     position: relative;
+    text-align: center;
 }
 .site-card:hover{
     transform: scale(1.05) rotate(-1deg);
@@ -148,11 +157,38 @@ canvas {
     border-radius: .68rem;
     border:1px solid rgba(60,60,60,.5)
 }
+
+.things{
+    list-style: none;
+    padding:0;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: min(1rem, 10px);
+    
+    & li{
+        --border-color: color-mix(in oklab, black 15%, var(--brand-dark));
+        margin: 0;
+        padding: min(8px, 5vw);
+        width:54px;
+        border:1px solid var(--border-color);
+        border-radius: min(9px, 4vw);
+        font-size: 11px;
+        background-color: #131313;
+       
+    }
+    & svg{
+        width: 100%;
+        aspect-ratio: 1/1;
+        display: block;
+        margin: auto;
+    }
+
+}
 @media (width >= 1024px) {
     .structure {
         grid-template-columns: 1fr minmax(150px, 25%);
         gap: min(20vw, 150px);
-        align-items: center;
     }
     aside {
         padding: min(2rem, 2vw);
