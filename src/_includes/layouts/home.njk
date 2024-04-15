@@ -14,6 +14,11 @@
         {{ content | safe }}
     </div>
     <section>
+        {% include "partials/sites.njk" %}
+    </section>
+    <br> <br> <br>
+    <br> <br> <br>
+     <section>
         <h3>Things I know/use/enjoy</h3>
         <ul class="things">
             {% set things = [
@@ -111,8 +116,5 @@
                 </li>
             {% endfor %}
         </ul>
-    </section>
-    <section>
-        {% include "partials/sites.njk" %}
     </section>
 {% endblock %}

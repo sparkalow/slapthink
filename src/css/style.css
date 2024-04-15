@@ -170,7 +170,7 @@ canvas {
         --border-color: color-mix(in oklab, black 15%, var(--brand-dark));
         margin: 0;
         padding: min(8px, 5vw);
-        width:54px;
+        width:50px;
         border:1px solid var(--border-color);
         border-radius: min(9px, 4vw);
         font-size: 11px;
@@ -181,7 +181,8 @@ canvas {
         width: 100%;
         aspect-ratio: 1/1;
         display: block;
-        margin: auto;
+        margin-block: auto;
+        margin-block-end: 5px;
     }
 
 }
