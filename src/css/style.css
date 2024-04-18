@@ -178,10 +178,10 @@ canvas {
        
     }
     & svg{
-        width: 100%;
+        width: 70%;
         aspect-ratio: 1/1;
         display: block;
-        margin-block: auto;
+        margin: auto;
         margin-block-end: 5px;
     }
 
