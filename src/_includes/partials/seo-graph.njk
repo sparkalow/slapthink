@@ -1,7 +1,6 @@
 {%- if not canonical -%}
-{% set canonical = (siteConfig.siteUrl + '/' + path + '/')%}
+{% set canonical = 'https://slapthink.net' + page.url %}
 {%- endif -%}
-{% set canonical = canonical  %}
 <link rel="canonical" href="{{ canonical }}">
 <meta name="description" content="{{ seo.description if seo.description else 'Brian Matthews - Full stack developer' }}">
 <meta property="og:locale" content="en_US" />
@@ -9,6 +8,5 @@
 <meta property="og:title" content="{{title}}" />
 <meta property="og:description" content="{{seo.description}}" />
 <meta property="og:url" content="{{ canonical }}" />
-<meta property="og:site_name" content="{{siteConfig.siteName}}" />
 {#<meta property="og:image" content="{% openGraphScreenshotURL %}">#}
 {% if private or seo.noindex %}<meta name="robots" content="noindex, nofollow">{% endif%}
