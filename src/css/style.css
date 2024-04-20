@@ -28,6 +28,7 @@ h4,
 h5,
 h6 {
     font-family: var(--font-display);
+    text-align: center;
 }
 
 p {
@@ -38,13 +39,15 @@ h1 {
     color: var(--brand-secondary);
     display: inline-block;
     text-transform: uppercase;
-
+    max-width: 270px;
     svg {
         display: block;
-        max-width: 430px;
+        height: auto;
+        width: 100%;
+        font-size: 10px;
     }
 }
-h2{
+h2 {
     font-weight: bold;
     font-size: clamp(18px, 8vw, 24px);
     color: var(--brand-primary);
@@ -67,9 +70,10 @@ aside {
         color: var(--brand-primary);
     }
 }
-.leadin{
+.leadin {
     padding-block-end: 4rem;
     padding-block-start: 2rem;
+    border-bottom: 1px solid var(--brand-dark);
 }
 .links {
     & a {
@@ -93,13 +97,12 @@ nav ul {
 
     & a {
         text-decoration: underline;
-        font-size:.85rem;
+        font-size: 0.85rem;
     }
 
     & strong {
         display: block;
-        font-size:1rem;
-        
+        font-size: 1rem;
     }
 }
 
@@ -127,51 +130,52 @@ canvas {
     z-index: 1;
 }
 
-.sites-container{
+.sites-container {
     margin-block-start: calc(1rem + 5vw);
 }
-.sites{
+.sites {
     display: grid;
-    gap: clamp(1.5rem, 5vw, 3rem);
+    gap: clamp(2.5rem, 5vw, 3rem);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
 
-    & a{
+    & a {
         text-decoration: none;
     }
 }
-.site-card{
-    transition: transform .18s ease;
+.site-card {
+    transition: transform 0.18s ease;
     position: relative;
     text-align: center;
 }
-.site-card:hover{
+.site-card:hover {
     transform: scale(1.05) rotate(-1deg);
 }
-.site-card img{
+.site-card img {
     aspect-ratio: 4/3;
     width: 100%;
     height: auto;
     object-fit: cover;
     object-position: top;
-    border-radius: .68rem;
-    border:1px solid rgba(60,60,60,.5)
+    border-radius: 0.68rem;
+    border: 1px solid rgba(60, 60, 60, 0.5);
 }
 
-.things{
+.things {
     list-style: none;
-    padding:0;
+    padding: 0;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: min(1rem, 10px);
-    
-    & li{
+
+    & li {
         --border-color: color-mix(in oklab, black 18%, var(--brand-dark));
         margin: 0;
-        padding:  min(12px, 5%);
-        flex: 0 1 ;
-        min-width: 64px;
-        border:1px solid var(--border-color);
+        padding: min(12px, 5%);
+        flex: 0 1;
+        min-width: 20%;
+        border: 1px solid var(--border-color);
         border-radius: min(6px, 1vw);
         font-size: 11px;
         background-color: #131313;
@@ -181,23 +185,41 @@ canvas {
         align-items: center;
         justify-items: center;
         gap: 5px;
-
     }
-    & svg{
+    & svg {
         aspect-ratio: 1/1;
         display: block;
         max-height: 48px;
     }
-
 }
 @media (width >= 1024px) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-align: left;
+    }
+    h1{
+        margin:3px 0 0;
+    }
+
     .structure {
         grid-template-columns: 1fr minmax(150px, 25%);
         gap: min(20vw, 150px);
     }
     aside {
-        padding: min(2rem, 2vw);
+        padding: 0  min(2rem, 2vw);
         background-color: #1d1217;
+        border-radius: 0 2rem 0 0;
+        margin:0;
         background: linear-gradient(#1d1217 0%, #1d121718 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    .things{
+        justify-content: left;
+        & li{
+            min-width: 64px;
+        }
     }
 }
