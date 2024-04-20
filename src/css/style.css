@@ -45,7 +45,7 @@ h1 {
         max-width: 430px;
     }
 }
-h3{
+h2{
     font-weight: bold;
     font-size: clamp(18px, 8vw, 24px);
     color: var(--brand-primary);
@@ -170,12 +170,12 @@ canvas {
         --border-color: color-mix(in oklab, black 15%, var(--brand-dark));
         margin: 0;
         padding: min(8px, 5vw);
-        width:50px;
+        flex: 1;
+        min-width: 50px;
         border:1px solid var(--border-color);
         border-radius: min(9px, 4vw);
         font-size: 11px;
         background-color: #131313;
-       
     }
     & svg{
         width: 70%;
