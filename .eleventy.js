@@ -1,5 +1,6 @@
 const path = require("path");
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const browserslist = require("browserslist");
+const { bundle, browserslistToTargets, features, composeVisitors } = require("lightningcss");
 const responsiveImgs = require("./src/_plugins/responsive.images.js");
 
 module.exports = function (eleventyConfig) {
@@ -7,6 +8,38 @@ module.exports = function (eleventyConfig) {
     process.env.TZ = "UTC";
 
     eleventyConfig.setTemplateFormats("md,njk,html");
+
+    // Recognize CSS as a "template language"
+    eleventyConfig.addTemplateFormats("css");
+
+    // Process CSS with LightningCSS
+    eleventyConfig.addExtension("css", {
+        outputFileExtension: "css",
+        compile: async function (_inputContent, inputPath) {
+            let parsed = path.parse(inputPath);
+            if (parsed.name.startsWith("_")) {
+                return;
+            }
+
+            let targets = browserslistToTargets(browserslist("> 0.2% and not dead"));
+
+            return async () => {
+                // Switch to the `transform` function if you don't
+                // plan to use `@import` to merge files
+                let { code } = await bundle({
+                    filename: inputPath,
+                    minify: true,
+                    sourceMap: false,
+                    targets,
+                    // Supports CSS nesting
+                    // drafts: {
+                    //     features.nesting,
+                    // },
+                });
+                return code;
+            };
+        },
+    });
 
     eleventyConfig.addFilter("cachebust", (url) => {
         const params = new URLSearchParams();
@@ -17,9 +50,6 @@ module.exports = function (eleventyConfig) {
 
         return `${url}?${params}`;
     });
-
-    //plugins
-    eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
     // Assets
     // eleventyConfig.addPassthroughCopy("src/css");

@@ -1,4 +1,4 @@
-@import "@csstools/normalize.css";
+@import "../../node_modules/@csstools/normalize.css/normalize.css";
 
 :root {
     --font-copy: "IBM Plex Sans", sans-serif;
@@ -39,9 +39,8 @@ h1 {
     display: inline-block;
     text-transform: uppercase;
 
-    & svg {
+    svg {
         display: block;
-
         max-width: 430px;
     }
 }
