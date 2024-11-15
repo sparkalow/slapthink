@@ -2,3 +2,4 @@ tmp
 _site/
 node_modules/
 .history
+.idea
