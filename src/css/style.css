@@ -34,11 +34,12 @@ h6 {
 p {
     line-height: 1.5;
 }
-
+svg{
+    color: var(--brand-secondary);
+}
 h1 {
     color: var(--brand-secondary);
     display: inline-block;
-    text-transform: uppercase;
     max-width: 270px;
     svg {
         display: block;
@@ -56,6 +57,13 @@ h2 {
     fill: currentColor;
 }
 
+header{
+
+    & h1{
+        display: block;
+        padding-block-start: 2rem;
+    }
+}
 .structure {
     display: grid;
     grid-template-columns: 1fr;
