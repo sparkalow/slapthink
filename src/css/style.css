@@ -113,7 +113,9 @@ nav ul {
         font-size: 1rem;
     }
 }
-
+.uppercase{
+    text-transform: uppercase;
+}
 .hidden {
     display: none;
 }
