@@ -1,5 +1,6 @@
 @import "../../node_modules/@csstools/normalize.css/normalize.css";
 @import "fonts.css";
+@import "site-header.css";
 
 :root {
     --font-copy: "IBM Plex Sans", sans-serif;
@@ -17,9 +18,9 @@ body {
     letter-spacing: 0.02rem;
     color: var(--brand-light);
     background-color: #21181c;
-    width: min(960px, 100% - 4rem);
+    width: min(960px, 100% - 2rem);
     margin: auto;
-    padding-top: 2rem;
+    padding-block-start: 2rem;
 }
 
 h1,
@@ -29,42 +30,27 @@ h4,
 h5,
 h6 {
     font-family: var(--font-display);
-    text-align: center;
+    margin: 0 0 .5rem;
 }
 
 p {
     line-height: 1.5;
 }
-svg{
+
+svg {
     color: var(--brand-secondary);
 }
-h1 {
-    color: var(--brand-secondary);
-    display: inline-block;
-    max-width: 270px;
-    svg {
-        display: block;
-        height: auto;
-        width: 100%;
-        font-size: 10px;
-    }
-}
+
 h2 {
     font-weight: bold;
     font-size: clamp(18px, 8vw, 24px);
     color: var(--brand-primary);
 }
+
 .current-color {
     fill: currentColor;
 }
 
-header{
-
-    & h1{
-        display: block;
-        padding-block-start: 2rem;
-    }
-}
 .structure {
     display: grid;
     grid-template-columns: 1fr;
@@ -72,51 +58,69 @@ header{
     position: relative;
     z-index: 20;
 }
+
 aside {
+    display: block;
     margin: min(20vh, 50px) 0 0;
 
-    & h4 {
+    h4 {
         color: var(--brand-primary);
+        margin-block-start: 2rem;
+
+        &:first-child{
+            margin-block-start: 0;
+        }
+    }
+
+    ul,p{
+        padding-inline-start: 0.68rem;
     }
 }
+
 .leadin {
     padding-block-end: 4rem;
     padding-block-start: 2rem;
     border-bottom: 1px solid var(--brand-dark);
 }
+
 .links {
     & a {
         display: inline-flex;
         align-items: center;
         gap: 5px;
     }
+
     & svg {
         fill: var(--brand-secondary);
     }
 }
-nav ul {
-    margin: 0;
-    padding: 0;
-    padding-inline-start: 0.68rem;
-    list-style: none;
 
-    & li {
-        padding-block: 8px;
-    }
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
 
-    & a {
-        text-decoration: underline;
-        font-size: 0.85rem;
-    }
+        & li {
+            padding-block: 8px;
+        }
 
-    & strong {
-        display: block;
-        font-size: 1rem;
+        & a {
+            text-decoration: underline;
+            font-size: 0.85rem;
+        }
+
+        & strong {
+            display: block;
+            font-size: 1rem;
+        }
     }
 }
-.uppercase{
+
+.uppercase {
     text-transform: uppercase;
 }
+
 .hidden {
     display: none;
 }
@@ -144,6 +148,7 @@ canvas {
 .sites-container {
     margin-block-start: calc(1rem + 5vw);
 }
+
 .sites {
     display: grid;
     gap: clamp(2.5rem, 5vw, 3rem);
@@ -153,14 +158,17 @@ canvas {
         text-decoration: none;
     }
 }
+
 .site-card {
     transition: transform 0.18s ease;
     position: relative;
     text-align: center;
 }
+
 .site-card:hover {
     transform: scale(1.05) rotate(-1deg);
 }
+
 .site-card img {
     aspect-ratio: 4/3;
     width: 100%;
@@ -197,39 +205,36 @@ canvas {
         justify-items: center;
         gap: 5px;
     }
+
     & svg {
         aspect-ratio: 1/1;
         display: block;
         max-height: 48px;
     }
 }
+
 @media (width >= 1024px) {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        text-align: left;
-    }
-    h1{
-        margin:3px 0 0;
+    h1 {
+        margin: 3px 0 0;
     }
 
     .structure {
         grid-template-columns: 1fr minmax(150px, 25%);
         gap: min(20vw, 150px);
     }
+
     aside {
-        padding: 0  min(2rem, 2vw);
+        padding: 1rem min(2rem, 2vw);
         background-color: #1d1217;
         border-radius: 0 2rem 0 0;
-        margin:0;
+        margin: 0;
         background: linear-gradient(#1d1217 0%, #1d121718 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-    .things{
+
+    .things {
         justify-content: left;
-        & li{
+
+        & li {
             min-width: 64px;
         }
     }

@@ -1,0 +1,43 @@
+#site-header{
+    container: header / inline-size;
+    display: flex;
+    flex-direction: column;
+
+    *{
+        display: inline-block;
+        width: fit-content;
+    }
+    h1 {
+        color: var(--brand-secondary);
+        text-align: left;
+        padding-bottom: 2rem;
+
+        svg {
+            height: auto;
+            width: 100%;
+            font-size: 10px;
+        }
+    }
+
+
+    @container (min-width: 100rem) {
+
+        h1 {
+            font-weight: bold;
+            color: red;
+        }
+    }
+}
+.home #site-header{
+    gap: 0;
+
+    svg{
+        width: 260px;
+        height: auto;
+    }
+
+    h1{
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+}
