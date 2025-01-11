@@ -10,7 +10,8 @@
     h1 {
         color: var(--brand-secondary);
         text-align: left;
-        padding-bottom: 2rem;
+        padding-bottom: clamp(.5rem, .2rem + 1.4vw, 2rem);
+        font-size: 32px;
 
         svg {
             height: auto;

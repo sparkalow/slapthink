@@ -15,12 +15,14 @@
 body {
     font-family: var(--font-copy);
     line-height: 1.2;
+    font-size: clamp(1rem, 0.8929rem + 0.4762vw, 1.25rem);
     letter-spacing: 0.02rem;
-    color: var(--brand-light);
-    background-color: #21181c;
+    color: #e0dfd4;
     width: min(960px, 100% - 2rem);
     margin: auto;
     padding-block-start: 2rem;
+    background-color: #21181c;
+    background: linear-gradient(in oklch 35deg, #101313, #221218);
 }
 
 h1,
@@ -30,7 +32,7 @@ h4,
 h5,
 h6 {
     font-family: var(--font-display);
-    margin: 0 0 .5rem;
+    margin: 0 0 clamp(.5rem, .1rem + 1.3vw, .7rem);
 }
 
 p {
@@ -44,6 +46,7 @@ svg {
 h2 {
     font-weight: bold;
     font-size: clamp(18px, 8vw, 24px);
+    font-size: clamp(1.25rem, 0.9286rem + 1.4286vw, 2rem);;
     color: var(--brand-primary);
 }
 
@@ -60,16 +63,15 @@ h2 {
 }
 
 aside {
-    display: block;
     margin: min(20vh, 50px) 0 0;
+    border: 1px solid var(--brand-dark);
+    display: flex;
+    line-height: 1.2;
+    gap: 2rem;
+    padding: 1rem min(2rem, 2vw);
 
     h4 {
         color: var(--brand-primary);
-        margin-block-start: 2rem;
-
-        &:first-child{
-            margin-block-start: 0;
-        }
     }
 
     ul,p{
@@ -79,7 +81,7 @@ aside {
 
 .leadin {
     padding-block-end: 4rem;
-    padding-block-start: 2rem;
+    padding-block-start: clamp(.5rem, .2rem + 1.4vw, 2rem);
     border-bottom: 1px solid var(--brand-dark);
 }
 
@@ -126,7 +128,8 @@ nav {
 }
 
 footer {
-    font-size: 12px;
+    font-size: .8rem;
+    letter-spacing: .15rem;
     padding-block-start: 100px;
     padding-block-end: 25px;
     color: hsl(336, 12%, 35%);
@@ -224,11 +227,10 @@ canvas {
     }
 
     aside {
-        padding: 1rem min(2rem, 2vw);
-        background-color: #1d1217;
+        flex-direction: column;
         border-radius: 0 2rem 0 0;
         margin: 0;
-        background: linear-gradient(#1d1217 0%, #1d121718 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        mask-image: linear-gradient(black 0%, transparent 80%);
     }
 
     .things {
