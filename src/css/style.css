@@ -163,19 +163,12 @@ canvas {
 }
 
 .site-card {
-    transition: all 0.18s ease;
+    transition: all 0.34s ease-in-out;
     position: relative;
     text-align: center;
     overflow: hidden;
-
 }
 
-.site-card:hover{
-    transform: scale(1.05)
-}
-.site-card:hover img{
-    animation: peak 4s ease-in-out ;;
-}
 .site-image {
     overflow: clip;
     height: 200px;
@@ -183,23 +176,31 @@ canvas {
     border-radius: 0.68rem;
     border: 1px solid rgba(60, 60, 60, 0.5);
 }
-@keyframes peak {
+@keyframes peek {
     0% {
         transform: translateY(0);
     }
-    50% {
+    100% {
         transform: translateY(-150px);
     }
-    100% {
-        transform: translateY(0);
-    }
+    /*100% {*/
+    /*    transform: translateY(0);*/
+    /*}*/
 }
 .site-card img {
-    /*aspect-ratio: 4/3;*/
     width: 100%;
     height: auto;
     object-fit: cover;
     object-position: top;
+    animation: peek 2.2s linear infinite forwards alternate;
+    animation-play-state: paused;
+}
+
+.site-card:hover{
+    transform: scale(1.1)
+}
+.site-card:hover img{
+    animation-play-state: running;
 }
 
 .things {
