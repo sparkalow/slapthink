@@ -1,7 +1,7 @@
 const path = require("path");
 const browserslist = require("browserslist");
 const { bundle, browserslistToTargets, features, composeVisitors } = require("lightningcss");
-const responsiveImgs = require("./src/_plugins/responsive.images.js");
+const responsiveImgs = require("./src/_plugins/responsive.images.mjs");
 
 module.exports = function (eleventyConfig) {
     const now = new Date();

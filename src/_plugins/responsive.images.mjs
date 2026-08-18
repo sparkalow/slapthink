@@ -1,11 +1,11 @@
 /**
  *
  */
-const Image = require("@11ty/eleventy-img");
-const path = require("path");
+import Image, { generateHTML } from "@11ty/eleventy-img";
+import path from "node:path";
+
 const urlPath = "/media/img"; //images url
 const outputDir = "_site/media/img/."; //images storage dir
-var imageDataCache = {}; // image data cache
 
 /**
  * Output a responsive image with created sizes and markup
@@ -15,7 +15,7 @@ var imageDataCache = {}; // image data cache
  * @returns {Promise<string>}
  *  example usage   {% image jumbotron.img, [800,1000], { img: { sizes:"(min-width: 1024px) 800px, 100vw", alt: "", class: "w-full object-cover"}, picture: { class:"clipped-img" } } %}
  */
-const rimage = async function (imgSrc, widths = ['auto'], attributes = {img: {}, picture: {}}) {
+export const rimage = async function (imgSrc, widths = ['auto'], attributes = {img: {}, picture: {}}) {
 
     try {
         if (!imgSrc) {
@@ -50,8 +50,7 @@ const rimage = async function (imgSrc, widths = ['auto'], attributes = {img: {},
             attributes.img
         );
 
-        const imgAttributesString = buildAttributes(imageAttributes);
-        let html = Image.generateHTML(imgData, imageAttributes);
+        let html = generateHTML(imgData, imageAttributes);
         if (attributes.picture && Object.keys(attributes.picture).length) {
             const pictureAttrString = buildAttributes(attributes.picture);
             html = html.replace('<picture>', `<picture ${pictureAttrString}>`);
@@ -96,8 +95,4 @@ const logError = function (msg, error) {
 };
 const logWarning = function (msg) {
     console.log("🟡    warning:", msg);
-};
-
-module.exports = {
-    rimage: rimage
 };
